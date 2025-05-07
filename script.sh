@@ -1,8 +1,11 @@
 #!/bin/bash
-sudo apt-get update
-sudo apt-get install -y curl
-curl -sL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+
+# Update package lists
+sudo apt-get update -y
+
+# Install utilities
+sudo apt-get install dialog apt-utils -y
+
+# Install Nginx
 sudo apt-get install -y nodejs
-echo "Node.js and npm installed successfully!"
-node -v
-npm -v
