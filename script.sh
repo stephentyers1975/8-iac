@@ -1,11 +1,5 @@
 #!/bin/bash
-echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
-
-# Update package lists
-sudo apt-get update -y
-
-# Install utilities
-sudo apt-get install dialog apt-utils -y
-
-# Install Nginx
+sudo apt-get install -y curl
+curl -fsSL https://deb.nodesource.com/setup_23.x -o nodesource_setup.sh
+sudo -E bash nodesource_setup.sh
 sudo apt-get install -y nodejs
